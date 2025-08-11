@@ -1,0 +1,32 @@
+dotnet test --filter "TestCategory=Smoke"
+
+
+dotnet test --settings test.runsettings --filter "TestCategory=Smoke"
+
+
+# Run specific class
+dotnet test --filter "FullyQualifiedName~SignInTests1"
+
+# Run a specific method
+dotnet test --filter "FullyQualifiedName~SignInTests1.SignInTest2"
+
+# Run by name
+dotnet test --filter "Name~Login"
+
+
+dotnet test --filter "FullyQualifiedName~LoginTests|FullyQualifiedName~SignUpTests"
+
+# if class name is unique
+dotnet test --filter "FullyQualifiedName~SignInTests1|FullyQualifiedName~ContactUsTests|FullyQualifiedName~ProductDetailsTests"
+# if not
+dotnet test --filter "FullyQualifiedName~automationCSharp.TestCases.SignInTests1|FullyQualifiedName~automationCSharp.TestCases.ContactUsTests|FullyQualifiedName~automationCSharp.TestCases.ProductDetailsTests"
+
+dotnet test --settings nunit.runsettings --filter "FullyQualifiedName~SignInTests1|FullyQualifiedName~ContactUsTests|FullyQualifiedName~ProductDetailsTests"
+
+chmod +x run-regression.sh ./run-regression.sh
+
+ENV=qa BROWSER=chrome dotnet test
+ENV=qa BROWSER=chrome dotnet test --filter "FullyQualifiedName~TestMethod1" --logger "console;verbosity=normal"
+GRIDRUN=true dotnet test --filter "FullyQualifiedName~SignInUp" --logger "console;verbosity=normal"
+
+GRIDRUN=false dotnet test --filter "FullyQualifiedName~SignInTests1|FullyQualifiedName~ContactUsTests|FullyQualifiedName~ProductDetailsTests"

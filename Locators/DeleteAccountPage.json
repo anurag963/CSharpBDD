@@ -1,0 +1,5 @@
+{
+  "deleteAccountPage_LogInLink": "xpath://h2[@data-qa='account-deleted']"
+
+
+}

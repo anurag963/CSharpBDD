@@ -1,0 +1,35 @@
+[
+  {
+    "title": "Mr",
+    "name": "Anurag",
+    "password": "Password@1",
+    "dob_MM_DD_YYYY": "3/22/1995",
+    "firstName": "Anurag",
+    "lastName": "Kumar",
+    "address": "Bangalore, India",
+    "email": "anuragkumar780@gmail.com",
+    "country": "India",
+    "state": "Karnataka",
+    "city": "Banglore",
+    "zipcode": "121234",
+    "phone": "1234567890"
+
+  },
+  {
+    "title": "Mr",
+    "name": "Anurag",
+    "password": "Password@1",
+    "dob_MM_DD_YYYY": "3/22/1995",
+    "firstName": "Anurag",
+    "lastName": "Kumar",
+    "address": "Bangalore, India",
+    "email": "testAnurag@gmail.com",
+    "country": "India",
+    "state": "Karnataka",
+    "city": "Banglore",
+    "zipcode": "121234",
+    "phone": "1234567890"
+
+  }
+
+]

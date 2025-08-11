@@ -1,0 +1,12 @@
+{
+  "logInPage_EmailAddressTxtBx": "xpath:(//input[@name='email'])[1]",
+  "logInPage_PasswordTxtBx": "xpath:(//input[@name='password'])[1]",
+  "logInPage_LogInBtn": "xpath:(//button[@type='submit'])[1]",
+  "logInPage_LogInLink": "xpath://a[@href='/login']",
+
+  "logInPage_SignUpNameTxtBx": "xpath://input[@name='name']",
+  "logInPage_SignUpEmailTxtBx": "xpath:(//input[@name='email'])[2]",
+  "logInPage_SignUpBtn": "xpath://button[text()='Signup']"
+
+
+}

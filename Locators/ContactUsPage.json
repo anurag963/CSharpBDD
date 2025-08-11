@@ -1,0 +1,13 @@
+{
+  "homePage_LogInLink1": "xpath://a[@href='%s']",
+  "homePage_LogInLink2": "xpath://a[@href='${text}']",
+  "contactUs_NameTxtBx": "name:name",
+  "contactUs_EmailTxtBx": "name:email",
+  "contactUs_SubjectTxtBx": "name:subject",
+  "contactUs_MessageTxtBx": "name:message",
+  "contactUs_Upload_file": "name:upload_file",
+  "contactUsPage_SubmitBtn": "xpath://input[@value='Submit']",
+  "contactUsPage_SubmitSuccessMessage": "xpath:(//div[text()='Success! Your details have been submitted successfully.'])[1]"
+
+
+}

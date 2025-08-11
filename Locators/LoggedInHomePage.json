@@ -1,0 +1,6 @@
+{
+  "loggedInHomePage_LogOutLink": "xpath://a[@href='/logout']",
+  "loggedInHomePage_DeleteAccountLink": "xpath://a[@href='/delete_account']",
+  "loggedInHomePage_ProductsLink": "xpath://a[@href='/products']"
+
+}

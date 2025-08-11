@@ -1,0 +1,29 @@
+Overall Architecture
+Docker Network: selenium-network
+├── Jenkins (as container)
+├── Selenium Hub
+│   ├── Chrome Node(s)
+│   └── Firefox Node(s)
+└── Test container (runs your test code, connects to Grid)
+
+
+Steps:-
+1. Create a Docker network
+    docker network create selenium-network
+
+2. Run Selenium Grid (Hub + Nodes)
+    Create a docker-compose.grid.yml:
+
+docker compose -f docker-compose.grid.yml up -d
+docker-compose -f docker-compose-grid.yml up -d
+docker-compose -f docker-compose-grid.yml down
+
+
+docker run -d  --name jenkins -p 8080:8080 -p 50000:50000 --network selenium-network -v ~/jenkins_home:/var/jenkins_home -v ./shared:/shared jenkins/jenkins:lts
+
+docker run -d  --name jenkins -u root -p 8080:8080 -p 50000:50000 --network selenium-network -v ~/jenkins_home:/var/jenkins_home -v /usr/local/share/dotnet:/usr/share/dotnet -v /usr/local/share/dotnet:/root/.dotnet -v /var/run/docker.sock:/var/run/docker.sock -v ./shared:/shared jenkins/jenkins:lts
+
+docker run -d --name jenkins -u root -p 8080:8080 -v jenkins_home:/var/jenkins_home -v /usr/local/share/dotnet:/usr/share/dotnet -v /usr/local/share/dotnet:/root/.dotnet -v /var/run/docker.sock:/var/run/docker.sock jenkins/jenkins:lts
+
+
+

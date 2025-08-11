@@ -1,0 +1,30 @@
+﻿{
+  "grid": {
+    "runOnGrid": "false",
+    "gridUrl": "http://localhost:4444/wd/hub",
+    "platform": ""
+  },
+  "driver": {
+    "browser": "chrome",
+    "waitSeconds": 120,
+    "implicitWait": 120
+  },
+
+  "test": {
+    "env": "stage",
+    "stageUrl": "https://automationexercise.com/",
+    "devUrl": "",
+    "prodUrl": ""
+  },
+  "apiBaseURI": {
+    "intgBaseURI": "",
+    "devBaseURI": ""
+  },
+  "user": {
+    "email": "anuragkumar780@gmail.com",
+    "password": "Password@1"
+  }
+
+ 
+
+}

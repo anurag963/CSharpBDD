@@ -1,0 +1,6 @@
+{
+  "productsPage_AllProductsHeader": "xpath://h2[text()='All Products']",
+  "productsPage_Products": "xpath://img[@alt='ecommerce website products']",
+  "productsPage_ProductDetailsLink": "xpath://a[@href='/product_details/${text}']"
+
+}

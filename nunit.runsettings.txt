@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RunSettings>
+  <RunConfiguration>
+    <ResultsDirectory>TestResults</ResultsDirectory>
+    <MaxCpuCount>3</MaxCpuCount>
+    <TargetPlatform>x64</TargetPlatform>
+    <TargetFramework>net9.0</TargetFramework>
+  </RunConfiguration>
+  <NUnit>
+    <NumberOfTestWorkers>3</NumberOfTestWorkers>
+  </NUnit>
+</RunSettings>

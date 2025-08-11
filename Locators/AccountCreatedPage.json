@@ -1,0 +1,5 @@
+{
+  "accountCreatedPage_TitleRadioBtn": "xpath://h2[@data-qa='account-created']/b"
+
+
+}

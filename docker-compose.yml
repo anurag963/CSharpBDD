@@ -1,0 +1,8 @@
+version: "3.8"
+
+services:
+  chrome:
+    image: selenium/standalone-chrome:latest
+    ports:
+      - "4444:4444"  # expose WebDriver endpoint to host
+    shm_size: 2gb     # prevents Chrome crashes in Docker

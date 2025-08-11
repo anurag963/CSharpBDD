@@ -1,0 +1,10 @@
+{
+  "productsDetailsPage_ProductName": "xpath://div[@class='product-information']/h2",
+  "productsDetailsPage_Category": "xpath://div[@class='product-information']/p",
+  "productsDetailsPage_Price": "xpath://div[@class='product-information']/span/span",
+  "productsDetailsPage_Availability": "xpath://div[@class='product-information']/p[2]",
+  "productsDetailsPage_Condition": "xpath://div[@class='product-information']/p[3]",
+  "productsDetailsPage_Brand": "xpath://div[@class='product-information']/p[4]"
+
+
+}

@@ -1,0 +1,9 @@
+{
+  "homePage_LogInLink1": "xpath://a[@href='%s']",
+  "homePage_LogInLink2": "xpath://a[@href='${text}']",
+  "homePage_LogInLink": "xpath://a[@href='/login']",
+  "homePage_ContactUsLink": "xpath://a[@href='/contact_us']",
+  "homePage_ProductsLink": "xpath://a[@href='/products']"
+
+
+}

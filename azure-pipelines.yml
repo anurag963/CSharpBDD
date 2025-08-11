@@ -1,0 +1,85 @@
+trigger:
+- main
+
+pool:
+  vmImage: 'ubuntu-latest'
+
+steps:
+- task: DockerInstaller@0
+  displayName: 'Install Docker 20.10+'
+  inputs:
+    dockerVersion: 20.10.24
+
+- script: |
+    docker --version
+    docker compose version
+  displayName: 'Check Docker and Compose Version'
+
+- script: |
+    docker compose -f docker-compose.yml up -d
+  displayName: 'Start Standalone Chrome'
+
+- script: |
+    CONTAINER_ID=$(docker ps -q --filter ancestor=selenium/standalone-chrome:latest)
+    if [ -z "$CONTAINER_ID" ]; then
+      echo "❌ Selenium container not running"
+      exit 1
+    fi
+    echo "Waiting for Selenium Chrome to be ready..."
+    for i in {1..60}; do
+      STATUS=$(curl -s http://localhost:4444/status || echo "")
+      if echo "$STATUS" | grep -q '"ready": *true'; then
+        echo "✅ Selenium Chrome is ready!"
+        exit 0
+      fi
+      echo "Not ready yet... retry $i/60"
+      sleep 2
+    done
+    echo "❌ Timeout waiting for Selenium Chrome"
+    echo "Container logs:"
+    docker logs $CONTAINER_ID
+    exit 1
+  displayName: 'Wait for Selenium Chrome to be ready'
+
+- task: UseDotNet@2
+  displayName: 'Install .NET 8 SDK'
+  inputs:
+    packageType: 'sdk'
+    version: '8.0.100'
+
+- script: dotnet restore
+  displayName: 'Restore dependencies'
+
+- script: dotnet build --no-restore --configuration Release
+  displayName: 'Build solution'
+
+- script: |
+    wget https://github.com/allure-framework/allure2/releases/download/2.21.0/allure-2.21.0.zip -O allure.zip
+    mkdir -p $HOME/allure
+    unzip -q allure.zip -d $HOME/allure
+    export PATH=$HOME/allure/allure-2.21.0/bin:$PATH
+    allure --version
+  displayName: 'Install Allure CLI'
+
+- script: dotnet test --no-build --configuration Release --logger "trx;LogFileName=test_results.trx" --results-directory ./allure-results
+  displayName: 'Run Selenium C# tests'
+  continueOnError: true 
+
+- task: PublishTestResults@2
+  displayName: 'Publish test results'
+  inputs:
+    testResultsFormat: 'VSTest'
+    testResultsFiles: '**/test_results.trx'
+    failTaskOnFailedTests: false
+
+- script: |
+    $HOME/allure/allure-2.21.0/bin/allure generate ./allure-results -o ./allure-report --clean
+  displayName: 'Generate Allure Report'
+
+- publish: ./allure-report
+  artifact: allure-report
+  displayName: 'Publish Allure Report Artifact'
+
+- script: docker compose -f docker-compose.yml down
+  displayName: 'Stop Chrome container'
+  condition: always() 

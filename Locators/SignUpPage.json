@@ -1,0 +1,23 @@
+{
+  "signUpPage_TitleRadioBtn": "xpath://input[@value='{0}']",
+  "signUpPage_NameTxtBx": "id:name",
+  "signUpPage_PasswordTxtBx": "id:password",
+
+  "signUpPage_DaysTxtBx": "id:days",
+  "signUpPage_MonthsTxtBx": "id:months",
+  "signUpPage_YearTxtBx": "id:years",
+
+  "signUpPage_AddressFirstNameTxtBx": "name:first_name",
+  "signUpPage_AddressLastNameTxtBx": "name:last_name",
+  "signUpPage_AddressAddress1TxtBx": "name:address1",
+  "signUpPage_AddressCountryDdn": "id:country",
+  "signUpPage_AddressStateTxtBx": "id:state",
+  "signUpPage_AddressCityTxtBx": "id:city",
+  "signUpPage_AddressZipcodeTxtBx": "id:zipcode",
+  "signUpPage_AddressMobileNumberTxtBx": "id:mobile_number",
+
+  "signUpPage_CreateAccountBtn": "xpath://button[@data-qa='create-account']"
+
+
+
+}
